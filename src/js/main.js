@@ -61,9 +61,7 @@ let countB;
 let countC;
 resultBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    // testBlock.forEach((item, i) => {
-    //     item.style.right = "100%";
-    // });
+    
     countA = 0;
     countB = 0;
     countC = 0;
@@ -89,7 +87,6 @@ resultBtn.addEventListener("click", (e) => {
     calcResWrap.forEach(item => item.style.transform = `translateX(-100%)`);
     calcResWrap.forEach(item => item.style.scale = `0`);
     calcResItem.forEach(item => item.classList.remove('calc__res_item-active'));
-    // calcRes.forEach(item => item.style.zIndex = "1");
 
 
 
@@ -97,14 +94,14 @@ resultBtn.addEventListener("click", (e) => {
         calcResItem[0].style.display = "flex";
         calcResWrap[0].style.scale = `1`;
         calcResItem[0].classList.add("calc__res_item-active");
-        calcResWrap[0].style.transform = `translateX(5%)`;
+        calcResWrap[0].style.transform = `translateX(0%)`;
     }
     if (countA == countB && countA > countC) {
         bigCount = true;
         calcResItem[0].style.display = "flex";
         calcResWrap[0].style.scale = `1`;
         calcResItem[0].classList.add("calc__res_item-active");
-        calcResWrap[0].style.transform = `translateX(5%)`;
+        calcResWrap[0].style.transform = `translateX(0%)`;
     }
     if (countA > countB && countA == countC) {
         bigCount = true;
@@ -112,7 +109,7 @@ resultBtn.addEventListener("click", (e) => {
             calcResItem[0].style.display = "flex";
             calcResWrap[0].style.scale = `1`;
             calcResItem[0].classList.add("calc__res_item-active");
-            calcResWrap[0].style.transform = `translateX(5%)`;
+            calcResWrap[0].style.transform = `translateX(0%)`;
         }
     }
 
@@ -122,14 +119,14 @@ resultBtn.addEventListener("click", (e) => {
             calcResItem[1].style.display = "flex";
             calcResWrap[1].style.scale = `1`;
         calcResItem[1].classList.add("calc__res_item-active");
-        calcResWrap[1].style.transform = `translateX(-95%)`;
+        calcResWrap[1].style.transform = `translateX(-100%)`;
     }
     if (countB == countA && countB > countC) {
         if (!bigCount) {
             calcResItem[1].style.display = "flex";
             calcResWrap[1].style.scale = `1`;
             calcResItem[1].classList.add("calc__res_item-active");
-            calcResWrap[1].style.transform = `translateX(-95%)`;
+            calcResWrap[1].style.transform = `translateX(-100%)`;
         }
     }
     if (countB > countA && countB == countC) {
@@ -137,7 +134,7 @@ resultBtn.addEventListener("click", (e) => {
             calcResItem[1].style.display = "flex";
             calcResWrap[1].style.scale = `1`;
         calcResItem[1].classList.add("calc__res_item-active");
-        calcResWrap[1].style.transform = `translateX(-95%)`;
+        calcResWrap[1].style.transform = `translateX(-100%)`;
     }
 
 
@@ -146,14 +143,14 @@ resultBtn.addEventListener("click", (e) => {
             calcResItem[2].style.display = "flex";
         calcResItem[2].classList.add("calc__res_item-active");
         calcResWrap[2].style.scale = `1`;
-        calcResWrap[2].style.transform = `translateX(-196%)`;
+        calcResWrap[2].style.transform = `translateX(-200%)`;
     }
     if (countC == countA && countC > countB) {
         if (!bigCount) {
             calcResItem[2].style.display = "flex";
             calcResItem[2].classList.add("calc__res_item-active");
             calcResWrap[2].style.scale = `1`;
-            calcResWrap[2].style.transform = `translateX(-196%)`;
+            calcResWrap[2].style.transform = `translateX(-200%)`;
         }
     }
     if (countC > countA && countC == countB) {
@@ -161,23 +158,27 @@ resultBtn.addEventListener("click", (e) => {
             calcResItem[2].style.display = "flex";
             calcResItem[2].classList.add("calc__res_item-active");
             calcResWrap[2].style.scale = `1`;
-            calcResWrap[2].style.transform = `translateX(-196%)`;
+            calcResWrap[2].style.transform = `translateX(-200%)`;
         }
     }
 
-    slides.forEach(slide => {
-        slide.classList.remove('slide-active');
-        slide.style.scale = `0`;
-        slide.style.transform = `translateX(-${(translate)}%)`;
-    });
-    let count = slides.length - 1;
-    if(slides[count]) {
-        slides[count].classList.add('slide-active');
-        slides[count].style.scale = `1`;
-        slides[count].style.transform = `translateX(-500%)`;
-    }
+    
+    document.querySelector('.calc__res').style.display = 'flex';
 
-    calcGo.style.display = "none";
+    
+    setTimeout(() => {
+        slides.forEach(slide => {
+            slide.classList.remove('slide-active');
+            slide.style.transform = `translateX(-${(translate)}%)`;
+        });
+        let count = slides.length - 1;
+        if(slides[count]) {
+            slides[count].classList.add('slide-active');
+            slides[count].style.transform = `translateX(-500%)`;
+        }
+    
+        calcGo.style.display = "none";
+    }, 500);
 });
 
 const anchors = document.querySelectorAll('a[href*="#"]')
@@ -227,7 +228,6 @@ btnsSlider.forEach((item, i) => {
     } else {
         item.addEventListener('click', (e) => {
             resultBtn.style.display = "block";
-            document.querySelector('.calc__res').style.display = 'flex';
         });
     }
 });
@@ -242,7 +242,11 @@ calcResReturn.forEach(item => {
         calcResWrap.forEach(item => item.style.transform = `translateX(-100%)`);
         calcResWrap.forEach(item => item.style.scale = `0`);
         calcResItem.forEach(item => item.classList.remove('calc__res_item-active'));
-        document.querySelector('.calc__res').style.display = 'none';
+
+        setTimeout(() => {
+            document.querySelector('.calc__res').style.display = 'none';
+            
+        }, 500);
 
         resultBtn.style.display = "none";
         
@@ -254,7 +258,6 @@ calcResReturn.forEach(item => {
                 item.classList.add('slide-active');
                 currentIndex = 0;
                 translate = 0;
-                // item.style.transform = `translateX(0)`;
             }
         });
         main();

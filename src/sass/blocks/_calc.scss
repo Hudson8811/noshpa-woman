@@ -695,16 +695,15 @@
         font-weight: 400;
         line-height: normal;
         position: absolute;
-        bottom: vw(-174);
+        bottom: vw(-66);
         left: 50%;
         transform: translateX(-50%);
         cursor: pointer;
 
         @include max(sm) {
             margin-bottom: vw2(35);
-            bottom: vw2(-60);
+            bottom: vw2(-197);
             font-size: vw2(32);
-            bottom: vw2(-174);
         }
     }
 
@@ -738,7 +737,7 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            margin: vw(95) auto vw(71) auto;
+            margin: vw(95) auto 0 auto;
 
             border-radius: vw(70);
             background: #F5F5F5;
@@ -754,7 +753,7 @@
 
                 border-radius: vw2(70);
                 box-shadow: 0 vw2(10) vw2(20) 0 #F2578C;
-                margin: vw2(95) auto vw2(71) auto;
+                margin: vw2(95) auto 0 auto;
             }
         }
 
@@ -765,10 +764,8 @@
             font-weight: 400;
             line-height: normal;
             width: vw(1378);
-            margin-top: vw(97);
 
             @include max(sm) {
-                margin-top: vw2(99);
                 font-size: vw2(20);
                 width: vw2(755);
             }
@@ -846,7 +843,7 @@
         &_item {
             
             display: flex;
-            transition: all .3s ease-in-out;
+            transition: all .5s ease-in-out;
             padding: vw(80) vw(116) vw(80) vw(30);
             border-radius: vw(133);
             background: #F1F1EF;
@@ -867,6 +864,10 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                min-width: vw(1920);
+                @include max(sm) {
+                    min-width: vw2(800);
+                }
             }
         }
 
@@ -1046,9 +1047,8 @@
     flex: 0 0 100%;
     width: 100%;
     height: 100%;
-    transition: opacity 0.3s ease-in-out;
-    transition: transform 0.3s ease-in-out;
-    scale: 0;
+    transition: all 0.3s ease-in-out;
+    scale: 1;
     opacity: 0;
   }
 

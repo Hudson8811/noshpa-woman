@@ -39,3 +39,14 @@ img {
         padding: 0 10px;
     }
 }
+
+footer {
+    padding: vw(97) 0 vw(30) 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include max(sm) {
+        padding: vw2(99) 0 vw2(78) 0;
+    }
+}
