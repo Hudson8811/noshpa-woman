@@ -563,7 +563,7 @@
             @include max(sm) {
                 right: vw2(15);
                 top: unset;
-                bottom: vw2(-121);
+                bottom: vw2(40);
                 width: vw2(94);
                 height: vw2(94);
                 filter: drop-shadow(vw2(5) vw2(10) vw2(20) #EFA7B2);
@@ -639,7 +639,7 @@
             width: vw2(800);
             z-index: -2;
             left: 0;
-            bottom: vw2(-197);
+            bottom: vw2(0);
             z-index: -2;
             display: none;
 
@@ -702,7 +702,7 @@
 
         @include max(sm) {
             margin-bottom: vw2(35);
-            bottom: vw2(-197);
+            bottom: vw2(-150);
             font-size: vw2(32);
         }
     }
@@ -721,7 +721,7 @@
         @include max(sm) {
             padding: 0;
 
-            min-height: vw2(2100);
+            // min-height: vw2(2100);
         }
 
         &_return {
