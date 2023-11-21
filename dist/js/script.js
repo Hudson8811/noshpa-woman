@@ -280,7 +280,9 @@ btnsSlider.forEach((item, i) => {
       } else {
         currentIndex++;
       }
-      updateSlider();
+      setTimeout(() => {
+        updateSlider();
+      }, 500);
     });
   } else {
     item.addEventListener('click', e => {

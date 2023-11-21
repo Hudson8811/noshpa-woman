@@ -222,7 +222,10 @@ btnsSlider.forEach((item, i) => {
                 currentIndex++;
             }
 
-            updateSlider();
+            setTimeout(() => {
+                updateSlider();
+                
+            }, 500);
         });
     } else {
         item.addEventListener('click', (e) => {
