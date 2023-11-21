@@ -143,8 +143,7 @@ main();
 let countA;
 let countB;
 let countC;
-resultBtn.addEventListener("click", e => {
-  e.preventDefault();
+function result() {
   countA = 0;
   countB = 0;
   countC = 0;
@@ -245,7 +244,7 @@ resultBtn.addEventListener("click", e => {
     }
     calcGo.style.display = "none";
   }, 500);
-});
+}
 const anchors = document.querySelectorAll('a[href*="#"]');
 for (let anchor of anchors) {
   anchor.addEventListener('click', function (e) {
@@ -285,7 +284,7 @@ btnsSlider.forEach((item, i) => {
     });
   } else {
     item.addEventListener('click', e => {
-      resultBtn.style.display = "block";
+      result();
     });
   }
 });
